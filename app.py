@@ -69,11 +69,11 @@ def error(bot, update):
     logger.error("Update '%s' caused error '%s'", update, update.error)
 
 
-    
-
-if __name__ == "__main__":
-    bot=Bot(TOKEN)
-    bot.set_webhook("https://pantomath-bot.herokuapp.com/" + TOKEN)
+bot=Bot(TOKEN)
+    try:
+        bot.set_webhook("https://pantomath-bot.herokuapp.com/" + TOKEN)
+    except Exception as e:
+        print(e)
 
     dp = Dispatcher(bot,None)
 
@@ -83,5 +83,8 @@ if __name__ == "__main__":
     dp.add_handler(MessageHandler(Filters.text, reply_text))
     dp.add_handler(MessageHandler(Filters.sticker, echo_sticker))
     dp.add_error_handler(error)
+    app.run(port=8443)    
+
+if __name__ == "__main__":
     app.run(port=8443)
     
