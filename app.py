@@ -73,7 +73,7 @@ def error(bot, update):
 
 if __name__ == "__main__":
     bot=Bot(TOKEN)
-    bot.set_webhook("https://1d0a-2405-201-3008-c879-b92c-c0cf-bbe3-c194.ngrok.io/" + TOKEN)
+    bot.set_webhook("https://pantomath-bot.herokuapp.com/" + TOKEN)
 
     dp = Dispatcher(bot,None)
 
