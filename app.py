@@ -70,19 +70,19 @@ def error(bot, update):
 
 
 bot=Bot(TOKEN)
-    try:
-        bot.set_webhook("https://pantomath-bot.herokuapp.com/" + TOKEN)
-    except Exception as e:
-        print(e)
+try:
+    bot.set_webhook("https://pantomath-bot.herokuapp.com/" + TOKEN)
+except Exception as e:
+    print(e)
 
-    dp = Dispatcher(bot,None)
+dp = Dispatcher(bot,None)
 
-    dp.add_handler(CommandHandler("start", start))
-    dp.add_handler(CommandHandler("help", _help))
-    dp.add_handler(CommandHandler("news", news))
-    dp.add_handler(MessageHandler(Filters.text, reply_text))
-    dp.add_handler(MessageHandler(Filters.sticker, echo_sticker))
-    dp.add_error_handler(error)  
+dp.add_handler(CommandHandler("start", start))
+dp.add_handler(CommandHandler("help", _help))
+dp.add_handler(CommandHandler("news", news))
+dp.add_handler(MessageHandler(Filters.text, reply_text))
+dp.add_handler(MessageHandler(Filters.sticker, echo_sticker))
+dp.add_error_handler(error)  
 
 if __name__ == "__main__":
     app.run(port=8443)
