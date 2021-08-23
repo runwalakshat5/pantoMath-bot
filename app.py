@@ -31,7 +31,7 @@ def webhook():
 def start(bot, update):
     """callback function for /start handler"""
     author = update.message.from_user.first_name
-    reply = "Hi! {}".format(author)
+    reply = "Hi! {}.This bot is created by Akshat Runwal".format(author)
     bot.send_message(chat_id=update.message.chat_id, text=reply)
 
 
